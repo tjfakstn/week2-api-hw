@@ -29,7 +29,7 @@ public class AuthController {
      * 아이디 중복 체크를 진행한다.
      */
     @GetMapping("/auth/members/validate")
-    public void validateLoginId(String memberLoginId) {
+    public void validateLoginId(@RequestParam String memberLoginId) {
         authService.validateLoginId(memberLoginId);
     }
 
@@ -47,14 +47,6 @@ public class AuthController {
     @PostMapping("/auth/members/login")
     public AuthLoginResponse login(@RequestBody AuthLoginRequest request) {
         return authService.login(request);
-    }
-
-    /**
-     * 회원 비밀번호를 변경한다.
-     */
-    @PostMapping("/members/{memberId}/password")
-    public void changePassword(@PathVariable Long memberId, @RequestParam AuthPasswordChangeRequest request) {
-        authService.changePassword(memberId, request);
     }
 
 
