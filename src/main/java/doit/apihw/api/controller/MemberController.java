@@ -1,5 +1,6 @@
 package doit.apihw.api.controller;
 
+import doit.apihw.api.controller.dto.AuthNameChangeRequest;
 import doit.apihw.api.controller.dto.AuthPasswordChangeRequest;
 import doit.apihw.api.controller.dto.MemberResponse;
 import doit.apihw.api.service.MemberService;
@@ -51,5 +52,8 @@ public class MemberController {
     }
 
     // TODO : 자유 주제로 API를 추가로 구현해보세요.
-
+    @PostMapping("/members/{memberId}/name")
+    public void changeName(@PathVariable Long memberId, @RequestBody AuthNameChangeRequest request) {
+        memberService.changeName(memberId, request);
+    }
 }

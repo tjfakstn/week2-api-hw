@@ -38,4 +38,11 @@ public class Member {
         }
         memberPassword = newPassword;
     }
+
+    public void changeName(String oldName, String newName) {
+        if (!memberPassword.equals(oldName)) {
+            throw new RuntimeException("비밀번호가 일치하지 않습니다.");
+        }
+        memberPassword = newName;
+    }
 }
